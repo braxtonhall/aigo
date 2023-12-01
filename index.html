@@ -18,9 +18,12 @@
 				overflow: hidden;
 				margin: 0;
 				background-color: black;
-				position: relative;
-				width: 100vw;
-				height: 100vh;
+				position: fixed;
+				top: 0;
+				left: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
 				text-rendering: optimizeLegibility;
 				font:
 					0.9em/1.3em Georgia,
@@ -38,7 +41,6 @@
 
 			#aigo {
 				width: 100%;
-				height: 100%;
 				writing-mode: vertical-lr;
 				font-size: 30vw;
 				color: white;
@@ -50,7 +52,7 @@
 			}
 
 			#links {
-				position: absolute;
+				position: fixed;
 				top: unset;
 				bottom: 10px;
 				text-align: center;
@@ -80,7 +82,7 @@
 			}
 
 			.centered {
-				position: absolute;
+				position: fixed;
 				top: 50%;
 				right: 50%;
 				transform: translate(50%, -50%);
@@ -94,7 +96,7 @@
 			.sound-icon {
 				bottom: 10px;
 				right: 10px;
-				position: absolute;
+				position: fixed;
 				width: 30px;
 				height: 30px;
 				filter: invert(1);
@@ -102,6 +104,11 @@
 			}
 
 			#video {
+				min-width: 110%;
+				min-height: 110%;
+				filter: blur(10px);
+				opacity: 0;
+				overflow: hidden;
 				-webkit-transition: opacity 1s ease-in;
 				-moz-transition: opacity 1s ease-in;
 				-o-transition: opacity 1s ease-in;
@@ -122,12 +129,6 @@
 				autoplay
 				muted
 				class="centered"
-				style="
-					min-width: 110%;
-					min-height: 110%;
-					filter: blur(10px);
-					opacity: 0;
-				"
 				onclick="
 		this.muted = !this.muted;
 		this.style.filter = this.muted ? 'blur(10px)' : 'unset'
@@ -140,14 +141,8 @@
 				<source src="naked.mp4" type="video/mp4" />
 			</video>
 
-			<div
-				id="aigo"
-				class="centered transparent"
-				style="display: table; pointer-events: none"
-			>
-				<span style="display: table-cell; vertical-align: middle"
-					>아이고</span
-				>
+			<div id="aigo" class="centered transparent" style="display: table; pointer-events: none">
+				<span style="display: table-cell; vertical-align: middle">아이고</span>
 			</div>
 
 			<div id="links" class="palette">
@@ -163,72 +158,36 @@
 						</a>
 					</li>
 					<li>
-						<a
-							href="#"
-							onclick="document.getElementById('about').style.display = 'unset'"
-						>
+						<a href="#" onclick="document.getElementById('about').style.display = 'unset'">
 							<span>about</span>
 						</a>
 					</li>
 				</ul>
 			</div>
 
-			<div
-				id="about"
-				class="centered"
-				style="max-height: 100%; overflow-y: scroll; display: none"
-			>
+			<div id="about" class="centered" style="max-height: 100%; overflow-y: scroll; display: none">
 				<div class="palette" style="margin: 20px; padding: 20px">
-					<p style="margin-top: 0">
-						아이고 (aigo) is a band based in berlin, formed in 2022
-					</p>
+					<p style="margin-top: 0">아이고 (aigo) is a band based in berlin, formed in 2022</p>
 					<p>featuring inky (vocal/keyboard) and jay (drums)</p>
 					<p>for collaboration, contact us at: aigo.berlin.2022 [at] gmail.com</p>
 					<br />
 					<p>
 						this website is proud member of
-						<a
-							href="https://bobs-club.net/site/aigo/pred"
-							title="previous site"
-							>&lt;</a
-						>
-						<a
-							href="https://bobs-club.net/site/aigo/random"
-							title="random site"
-							>?</a
-						>
-						<a href="https://bobs-club.net/" title="web ring"
-							>bob's club</a
-						>
-						<a
-							href="https://bobs-club.net/site/aigo/succ"
-							title="next site"
-							>&gt;</a
-						>
+						<a href="https://bobs-club.net/site/aigo/pred" title="previous site">&lt;</a>
+						<a href="https://bobs-club.net/site/aigo/random" title="random site">?</a>
+						<a href="https://bobs-club.net/" title="web ring">bob's club</a>
+						<a href="https://bobs-club.net/site/aigo/succ" title="next site">&gt;</a>
 					</p>
 					<p style="margin-bottom: 0">
-						<a
-							href="#"
-							onclick="document.getElementById('about').style.display = 'none'"
+						<a href="#" onclick="document.getElementById('about').style.display = 'none'"
 							><span>close</span></a
 						>
 					</p>
 				</div>
 			</div>
 
-			<img
-				id="off"
-				src="off.png"
-				alt="sound"
-				class="sound-icon transparent"
-			/>
-			<img
-				id="on"
-				src="on.png"
-				alt="sound"
-				class="sound-icon transparent"
-				style="display: none"
-			/>
+			<img id="off" src="off.png" alt="sound" class="sound-icon transparent" />
+			<img id="on" src="on.png" alt="sound" class="sound-icon transparent" style="display: none" />
 		</main>
 	</body>
 </html>
