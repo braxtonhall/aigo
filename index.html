@@ -1,163 +1,209 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<meta charset="utf-8"/>
-	<link rel="icon" href="/img/favicon.ico"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<meta name="theme-color" content="#000000"/>
-	<meta name="description" content="a website by braxton hall"/>
-	<link rel="apple-touch-icon" href="/img/icon128.png"/>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/img/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
+		<meta name="description" content="a website by braxton hall" />
+		<link rel="apple-touch-icon" href="/img/icon128.png" />
 
-	<title>아이고 (aigo)</title>
-	<style>
-		body {
-			margin: 0;
-		}
+		<title>아이고 (aigo)</title>
+		<style>
+			body {
+				margin: 0;
+			}
 
-		main {
-			overflow: hidden;
-			margin: 0;
-			background-color: black;
-			position: relative;
-			width: 100vw;
-			height: 100vh;
-			text-rendering: optimizeLegibility;
-			font: 0.9em/1.3em Georgia, serif;
-			-webkit-font-smoothing: subpixel-antialiased;
-			-moz-osx-font-smoothing: grayscale;
-		}
-
-		a,
-		a:visited,
-		a:hover {
-			color: #000000;
-			text-shadow: 0 0 0.1px rgba(73, 70, 70, 0.5);
-		}
-
-		#aigo {
-			width: 100%;
-			height: 100%;
-			writing-mode: vertical-lr;
-			font-size: 30vw;
-			color: white;
-			text-align: center;
-		}
-
-		.transparent {
-			opacity: 0.5;
-		}
-
-		#links {
-			position: absolute;
-			top: unset;
-			bottom: 10px;
-			text-align: center;
-			right: 50%;
-			transform: translateX(50%);
-		}
-
-		#about {
-			width: 100%;
-		}
-
-		@media only screen and (min-width: 600px) {
 			main {
-				font-size: unset;
+				overflow: hidden;
+				margin: 0;
+				background-color: black;
+				position: relative;
+				width: 100vw;
+				height: 100vh;
+				text-rendering: optimizeLegibility;
+				font:
+					0.9em/1.3em Georgia,
+					serif;
+				-webkit-font-smoothing: subpixel-antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+
+			a,
+			a:visited,
+			a:hover {
+				color: #000000;
+				text-shadow: 0 0 0.1px rgba(73, 70, 70, 0.5);
 			}
 
 			#aigo {
-				font-size: 25vw;
-				writing-mode: unset;
+				width: 100%;
+				height: 100%;
+				writing-mode: vertical-lr;
+				font-size: 30vw;
+				color: white;
+				text-align: center;
+			}
+
+			.transparent {
+				opacity: 0.5;
+			}
+
+			#links {
+				position: absolute;
+				top: unset;
+				bottom: 10px;
+				text-align: center;
+				right: 50%;
+				transform: translateX(50%);
 			}
 
 			#about {
-				max-width: 70%;
-				min-width: 30%;
-				width: unset;
+				width: 100%;
 			}
-		}
 
-		.centered {
-			position: absolute;
-			top: 50%;
-			right: 50%;
-			transform: translate(50%, -50%);
-		}
+			@media only screen and (min-width: 600px) {
+				main {
+					font-size: unset;
+				}
 
-		.palette {
-			background-color: white;
-			padding: 5px 10px;
-		}
+				#aigo {
+					font-size: 25vw;
+					writing-mode: unset;
+				}
 
-		.sound-icon {
-			bottom: 10px;
-			right: 10px;
-			position: absolute;
-			width: 30px;
-			height: 30px;
-			filter: invert(1);
-			pointer-events: none;
-		}
+				#about {
+					max-width: 70%;
+					min-width: 30%;
+					width: unset;
+				}
+			}
 
-		#video:hover {
-			cursor: pointer;
-		}
-	</style>
-</head>
-<body>
+			.centered {
+				position: absolute;
+				top: 50%;
+				right: 50%;
+				transform: translate(50%, -50%);
+			}
 
-<main>
-	<video id="video" loop autoplay muted class="centered" style="min-width: 110%; min-height: 110%; filter: blur(10px);" onclick="
-		this.volume = 0.5
+			.palette {
+				background-color: white;
+				padding: 5px 10px;
+			}
+
+			.sound-icon {
+				bottom: 10px;
+				right: 10px;
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				filter: invert(1);
+				pointer-events: none;
+			}
+
+			#video {
+				-webkit-transition: opacity 1s ease-in;
+				-moz-transition: opacity 1s ease-in;
+				-o-transition: opacity 1s ease-in;
+				-ms-transition: opacity 1s ease-in;
+				transition: opacity 1s ease-in;
+			}
+
+			#video:hover {
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<video
+				id="video"
+				loop
+				autoplay
+				muted
+				class="centered"
+				style="
+					min-width: 110%;
+					min-height: 110%;
+					filter: blur(10px);
+					opacity: 0;
+				"
+				onclick="
 		this.muted = !this.muted;
 		this.style.filter = this.muted ? 'blur(10px)' : 'unset'
 		document.getElementById('off').style.display = this.muted ? 'unset' : 'none';
 		document.getElementById('on').style.display = this.muted ? 'none' : 'unset';
-	" onloadedmetadata="this.currentTime = 100">
-		<source src="naked.mp4" type="video/mp4">
-	</video>
+	"
+				onloadedmetadata="this.currentTime = 100; this.style.opacity = '1'"
+				onload="this.volume = 0.5"
+			>
+				<source src="naked.mp4" type="video/mp4" />
+			</video>
 
-	<div id="aigo" class="centered transparent" style="display:table; pointer-events: none">
-		<span style="display:table-cell; vertical-align:middle;">아이고</span>
-	</div>
+			<div
+				id="aigo"
+				class="centered transparent"
+				style="display: table; pointer-events: none"
+			>
+				<span style="display: table-cell; vertical-align: middle"
+					>아이고</span
+				>
+			</div>
 
-	<div id="links" class="palette">
-		<ul style="padding: 0; margin: 0; list-style: none;">
-			<li>
-				<a href="https://t.me/ oUxjI8bmWm9lZmUy">
-					<span>telegram</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://www.youtube.com/@aigo.berlin">
-					<span>youtube</span>
-				</a>
-			</li>
-			<li>
-				<a href="#" onclick="document.getElementById('about').style.display = 'unset'">
-					<span>about</span>
-				</a>
-			</li>
-		</ul>
-	</div>
+			<div id="links" class="palette">
+				<ul style="padding: 0; margin: 0; list-style: none">
+					<li>
+						<a href="https://t.me/ oUxjI8bmWm9lZmUy">
+							<span>telegram</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.youtube.com/@aigo.berlin">
+							<span>youtube</span>
+						</a>
+					</li>
+					<li>
+						<a
+							href="#"
+							onclick="document.getElementById('about').style.display = 'unset'"
+						>
+							<span>about</span>
+						</a>
+					</li>
+				</ul>
+			</div>
 
-	<div id="about" class="centered" style="max-height: 100%; overflow-y: scroll; display: none;">
-		<div class="palette" style="margin: 20px; padding: 20px;">
-			<p style="margin-top: 0">
-				아이고 (aigo) is a band
-			</p>
-			<p>
-				They formed in 2022
-			</p>
-			<p style="margin-bottom: 0">
-				<a href="#" onclick="document.getElementById('about').style.display = 'none'"><span>close</span></a>
-			</p>
-		</div>
-	</div>
+			<div
+				id="about"
+				class="centered"
+				style="max-height: 100%; overflow-y: scroll; display: none"
+			>
+				<div class="palette" style="margin: 20px; padding: 20px">
+					<p style="margin-top: 0">아이고 (aigo) is a band</p>
+					<p>They formed in 2022</p>
+					<p style="margin-bottom: 0">
+						<a
+							href="#"
+							onclick="document.getElementById('about').style.display = 'none'"
+							><span>close</span></a
+						>
+					</p>
+				</div>
+			</div>
 
-	<img id="off" src="off.png" alt="sound" class="sound-icon transparent"/>
-	<img id="on" src="on.png" alt="sound" class="sound-icon transparent" style="display: none"/>
-</main>
-
-</body>
+			<img
+				id="off"
+				src="off.png"
+				alt="sound"
+				class="sound-icon transparent"
+			/>
+			<img
+				id="on"
+				src="on.png"
+				alt="sound"
+				class="sound-icon transparent"
+				style="display: none"
+			/>
+		</main>
+	</body>
 </html>
