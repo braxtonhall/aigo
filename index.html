@@ -60,8 +60,8 @@
 				transform: translateX(50%);
 			}
 
-			#about {
-				width: 100%;
+			#about-text {
+				margin: 20px;
 			}
 
 			@media only screen and (min-width: 600px) {
@@ -74,10 +74,8 @@
 					writing-mode: unset;
 				}
 
-				#about {
-					max-width: 70%;
-					min-width: 30%;
-					width: unset;
+				#about-text {
+					margin: 5% 30%;
 				}
 			}
 
@@ -165,8 +163,8 @@
 				</ul>
 			</div>
 
-			<div id="about" class="centered" style="max-height: 100%; overflow-y: scroll; display: none">
-				<div class="palette" style="margin: 20px; padding: 20px">
+			<div id="about" class="centered" style="max-height: 100%; overflow-y: scroll; display: none; width: 100%">
+				<div id="about-text" class="palette" style="padding: 20px">
 					<p style="margin-top: 0">아이고 (aigo) is a band based in berlin, formed in 2022</p>
 					<p>featuring inky (vocal/keyboard) and jay (drums)</p>
 					<p>for collaboration, contact us at: aigo.berlin.2022 [at] gmail.com</p>
