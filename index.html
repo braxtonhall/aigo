@@ -135,8 +135,9 @@
 				autoplay
 				muted
 				class="centered"
-				onloadedmetadata="this.currentTime = 100; this.style.opacity = '1'"
-				onload="this.volume = 0.5"
+				onloadedmetadata="this.currentTime = 100;"
+				onplaying="this.style.opacity = '1';"
+				onload="this.volume = 0.5;"
 				playsinline
 			>
 				<source src="naked.mp4" type="video/mp4" />
