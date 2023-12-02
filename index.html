@@ -41,10 +41,11 @@
 
 			#aigo {
 				width: 100%;
-				writing-mode: vertical-lr;
+				writing-mode: vertical-rl;
 				font-size: 30vw;
 				color: white;
 				text-align: center;
+				overflow-y: scroll;
 			}
 
 			.transparent {
@@ -101,6 +102,11 @@
 				pointer-events: none;
 			}
 
+			#big-button {
+				width: 100%;
+				height: 100%;
+			}
+
 			#video {
 				min-width: 110%;
 				min-height: 110%;
@@ -112,6 +118,7 @@
 				-o-transition: opacity 1s ease-in;
 				-ms-transition: opacity 1s ease-in;
 				transition: opacity 1s ease-in;
+				pointer-events: none;
 			}
 
 			#video:hover {
@@ -127,17 +134,24 @@
 				autoplay
 				muted
 				class="centered"
-				onclick="
-		this.muted = !this.muted;
-		this.style.filter = this.muted ? 'blur(10px)' : 'unset'
-		document.getElementById('off').style.display = this.muted ? 'unset' : 'none';
-		document.getElementById('on').style.display = this.muted ? 'none' : 'unset';
-	"
 				onloadedmetadata="this.currentTime = 100; this.style.opacity = '1'"
 				onload="this.volume = 0.5"
 			>
 				<source src="naked.mp4" type="video/mp4" />
 			</video>
+
+			<div
+				id="big-button"
+				onclick="
+		video = document.getElementById('video');
+		video.muted = !video.muted;
+		video.style.filter = video.muted ? 'blur(10px)' : 'unset'
+		document.getElementById('off').style.display = video.muted ? 'unset' : 'none';
+		document.getElementById('on').style.display = video.muted ? 'none' : 'unset';
+				"
+			>
+
+			</div>
 
 			<div id="aigo" class="centered transparent" style="display: table; pointer-events: none">
 				<span style="display: table-cell; vertical-align: middle">아이고</span>
