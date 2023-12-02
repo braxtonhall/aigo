@@ -152,9 +152,7 @@
 		document.getElementById('off').style.display = video.muted ? 'unset' : 'none';
 		document.getElementById('on').style.display = video.muted ? 'none' : 'unset';
 				"
-			>
-
-			</div>
+			></div>
 
 			<div id="aigo" class="centered transparent" style="display: table; pointer-events: none">
 				<span style="display: table-cell; vertical-align: middle">아이고</span>
@@ -173,7 +171,18 @@
 						</a>
 					</li>
 					<li>
-						<a href="#" onclick="document.getElementById('about').style.display = 'unset'; return false;">
+						<a
+							href="#"
+							onclick="
+						about = document.getElementById('about');
+						if (about.style.display === 'unset') {
+							about.style.display = 'none';
+						} else {
+							about.style.display = 'unset';
+						}
+						return false;
+					"
+						>
 							<span>about</span>
 						</a>
 					</li>
