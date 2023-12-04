@@ -138,11 +138,13 @@
 	</head>
 	<body>
 		<main>
+			<!--suppress HtmlUnknownAttribute -->
 			<video
 				id="video"
 				loop
 				autoplay
 				muted
+				disablePictureInPicture
 				class="centered"
 				onloadedmetadata="this.currentTime = 100;"
 				onplaying="this.style.opacity = '1';"
