@@ -75,6 +75,7 @@
 							about.style.display = 'none';
 						} else {
 							about.style.display = 'unset';
+							document.getElementById('book').style.display = 'none';
 							document.getElementById('close-about').focus();
 						}
 						return false;
@@ -92,6 +93,7 @@
 							book.style.display = 'none';
 						} else {
 							book.style.display = 'unset';
+							document.getElementById('about').style.display = 'none';
 							document.getElementById('close-book').focus();
 						}
 						return false;
