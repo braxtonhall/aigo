@@ -235,6 +235,10 @@ td.post-reply {
 	font-size: 12px;
 }
 
+td.post-reply form {
+	
+}
+
 td.post-reply details > summary {
 	font-style: italic;
 	cursor: pointer;
