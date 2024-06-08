@@ -236,7 +236,7 @@ td.post-reply {
 }
 
 td.post-reply form {
-	
+	margin-bottom: 0;
 }
 
 td.post-reply details > summary {
